@@ -1,17 +1,32 @@
 .input {
-  margin: 6px 0;
   box-sizing: border-box;
   padding: 8px;
   border: 0;
   background-color: rgba(9,9,9,.05);
   border-radius: 4px;
+  width: 100%;
 
-  &:first-child {
-    margin-top: 0;
+  &-saving {
+    position: absolute;
+    font-size: .7rem;
+    white-space: nowrap;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #14cd8a;
   }
 
-  &:last-child {
-    margin-bottom: 0;
+  &-container {
+    position: relative;
+    margin: 6px 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   &:focus {
