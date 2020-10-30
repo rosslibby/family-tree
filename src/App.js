@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Home from 'pages/Home'
 import Person from 'pages/Person'
+import Settings from 'pages/Settings'
 
 import 'styles/app.scss'
 
@@ -14,7 +15,7 @@ const App = () => (
       <Person />
     </Route>
     <Route path="/settings">
-      <div>Settings</div>
+      <Settings />
     </Route>
   </Router>
 )

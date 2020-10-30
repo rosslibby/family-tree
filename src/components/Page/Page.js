@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Page = ({children, centered}) => (
   <div>
     <div className="header">
-      <h1>Family Tree</h1>
+      <h1><Link to="/">Family Tree</Link></h1>
       <Link to="/settings">Profile</Link>
     </div>
     <div className="content">
