@@ -4,7 +4,19 @@
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, .05);
   box-sizing: border-box;
   display: flex;
-  padding: 12px;
+  flex-direction: column;
+  min-width: 360px;
+  padding: 20px;
+
+  &__content {
+    font-family: Roboto Slab, serif;
+  }
+
+  &__title {
+    font-family: Arvo, serif;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
 }
 
 .cards {

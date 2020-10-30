@@ -1,12 +1,12 @@
 import React from 'react'
 
-const Page = ({children}) => (
+const Page = ({children, centered}) => (
   <div>
     <div className="header">
       <h1>Family Tree</h1>
     </div>
     <div className="content">
-      <div className="page">{children}</div>
+      <div className={`page${centered ? ' page--centered' : ''}`}>{children}</div>
     </div>
   </div>
 )
