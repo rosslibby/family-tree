@@ -11,7 +11,6 @@ class Person extends React.Component {
   }
 
   static getDerivedStateFromProps(props, state) {
-    console.log(props.match.params.id != state.personId)
     if (props.match.params.id != state.personId) return {
       person: props.people.list.filter(person => person.id == props.match.params.id)[0],
       personId: props.match.params.id
@@ -24,6 +23,22 @@ class Person extends React.Component {
 
   _relative(id) {
     return this.props.people.list.filter(person => person.id == id)[0]
+  }
+
+  _children() {
+    const {person: {id}} = this.state
+    const children = this.props.people.list.filter(person => {
+      if (person.parentId1 === id || person.parentId2 === id) return person
+    })
+
+    console.log(children)
+    if (children.length > 0) return (
+      <p>Child{children.length > 1 ? 'ren' : ''}: {children.map((child, i) => {
+        if (i === children.length - 1) return <Link to={`./${child.id}`}>{child.name}</Link>
+        else if (i === children.length - 2) return <span><Link to={`./${child.id}`}>{child.name}</Link> & </span>
+        return <span><Link to={`./${child.id}`}>{child.name}</Link>, </span>
+      })}</p>
+    )
   }
 
   render() {
@@ -42,6 +57,7 @@ class Person extends React.Component {
             && !person.hasOwnProperty('parentId2')
             && <p>Parent: {this._relative(person.parentId1).name}</p>}
           {person.hasOwnProperty('spouseId') && <p>Spouse: <Link to={`./${person.spouseId}`}>{this._relative(person.spouseId).name}</Link></p>}
+          {this._children()}
         </Card>
       </Page>
     )
