@@ -3,6 +3,7 @@ import reduxThunk from 'redux-thunk'
 import reducer from 'reducers'
 
 import people from 'store/people'
+console.log(people)
 
 const store = createStore(reducer, {
   people
